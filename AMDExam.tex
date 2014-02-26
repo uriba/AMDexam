@@ -73,6 +73,29 @@ The special case of being able to satisfy the demand of another player that has 
         To conclude, the algorithm is monotone also w.r.t. $s_i$ and therefore a truthful mechanism exists.
         Using VCG will therefore result in a payment function that will make both scenarios truthful.
   \end{enumerate}
+  \item
+    \begin{enumerate}
+    \item 
+      Let $p(v_i)$ be the payment of player $i$ when stating $v_i$ and receiving slot $j$ with rate $r_j$.
+      As the mechanism is truthful, bidding a higher value, $v_i'>v_i$, and receiving a (possibly) different slot $j'$ with rate $r_{j'}$ will result in a lower or equal profit to this player:
+      \begin{equation*}
+        v_ir_j-p(v_i)\geq v_ir_{j'}-p(v_i')\ \rightarrow v_i(r_j-r_{j'})\geq p(v_i)-p(v_i')
+      \end{equation*}
+      On the other hand, stating $v_i$ when his true value is $v_i'>v_i$ will also not increase his profit, so:
+      \begin{equation*}
+        v_i'r_{j'}-p(v_i')\geq v_i'r_j-p(v_i)\ \rightarrow v_i'(r_{j'}-r_j)\geq p(v_i')-p(v_i)\ \rightarrow \ v_i'(r_j-r_{j'})\leq p(v_i)-p(v_i')
+      \end{equation*}
+      So together we get that:
+      \begin{equation*}
+        v_i(r_j-r_{j'})\geq p(v_i)-p(v_i')\geq v_i'(r_j-r_{j'})\ \rightarrow \ v_i(r_j-r_{j'})\geq v_i'(r_j-r_{j'})
+      \end{equation*}
+      As $v_i < v_i'$ we conclude that $r_j-r_{j'}\leq 0$ implying that $j'\leq j$.
+    \item
+      Following the hint (and the monotonicity, which we've proved in the previous item) we claim that the player with the highest value gets the first slot (and in general, if we sort the players by their values, then this is the order in which they get the slots).
+      This can be shown as follows - assume that there is a pair of players, $(i,i')$ such that $v_i>v_{i'}$ but their respective slot allocations $(j,j')$ are such that $j>j'$.
+      As the algorithm is anonymous, swapping the values of these two players will swap their allcated slots respectively.
+      Therefore, player $i'$ would get a \emph{higher} slot ($j$ instead of $j'$) by stating a higher value ($v_i$ instead of $v_{i'}$).
+    \end{enumerate}
 \end{enumerate}
 
 
